@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,15 +15,15 @@
       --accent: #ff8906;
       --tertiary: #e53170;
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--dark);
       color: var(--light);
       line-height: 1.6;
@@ -33,7 +33,7 @@
         radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.1) 0px, transparent 50%),
         radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.1) 0px, transparent 50%);
     }
-    
+
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -44,13 +44,12 @@
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    
+
     header {
       text-align: center;
       margin-bottom: 3rem;
-      position: relative;
     }
-    
+
     .profile-pic {
       width: 120px;
       height: 120px;
@@ -60,106 +59,167 @@
       margin-bottom: 1.5rem;
       box-shadow: 0 0 0 4px rgba(110, 69, 226, 0.2);
     }
-    
+
     h1 {
       font-size: 2.8rem;
-      margin-bottom: 0.5rem;
       background: linear-gradient(to right, var(--primary), var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
     }
-    
+
     .title {
       font-size: 1.2rem;
       color: var(--secondary);
       margin-bottom: 1.5rem;
+      font-weight: 400;
       opacity: 0.9;
     }
-    
+
     h2 {
       font-size: 1.6rem;
       margin: 2rem 0 1.2rem;
       color: var(--light);
+      position: relative;
+      display: inline-block;
+      letter-spacing: -0.5px;
     }
-    
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
     ul {
       list-style: none;
       padding-left: 1.2rem;
     }
-    
+
     li {
       margin-bottom: 1rem;
       position: relative;
       padding-left: 1.8rem;
+      font-size: 1.05rem;
     }
-    
+
     li::before {
       content: '▹';
       position: absolute;
       left: 0;
       color: var(--accent);
+      font-size: 1.2rem;
     }
-    
+
     a {
       color: var(--secondary);
       text-decoration: none;
       transition: all 0.3s ease;
+      font-weight: 500;
     }
-    
+
     a:hover {
       color: var(--accent);
     }
-    
+
     .social-links {
       display: flex;
-      gap: 1.8rem;
+      gap: 1.2rem;
       margin-top: 2.5rem;
       justify-content: center;
+      flex-wrap: wrap;
     }
-    
+
     .social-links a {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
+      color: var(--light);
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
     }
-    
-    /* Warna khusus untuk masing-masing sosial media */
-    .social-links a[title*="X"] { color: #000000; } /* Hitam untuk X */
-    .social-links a[title*="Discord"] { color: #5865F2; } /* Biru Discord */
-    .social-links a[title*="Telegram"] { color: #26A5E4; } /* Biru Telegram */
-    .social-links a[title*="LinkedIn"] { color: #0A66C2; } /* Biru LinkedIn */
-    
+
     .social-links a:hover {
       transform: translateY(-5px);
+      color: var(--accent);
+      background: rgba(255, 137, 6, 0.1);
       box-shadow: 0 5px 15px rgba(255, 137, 6, 0.2);
     }
-    
+
     .project-card {
       background: rgba(255, 255, 255, 0.03);
       border-radius: 16px;
       padding: 1.8rem;
       margin-bottom: 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.4s ease;
     }
-    
+
     .project-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(110, 69, 226, 0.3);
     }
-    
+
+    .project-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .project-title i {
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+
+    .project-card p {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+    }
+
+    .wallet-btn {
+      background: linear-gradient(135deg, var(--primary), #8a2be2);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 2rem auto 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(110, 69, 226, 0.3);
+    }
+
+    .wallet-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(110, 69, 226, 0.4);
+    }
+
     @media (max-width: 768px) {
+      body {
+        padding: 1.5rem;
+      }
       .container {
         padding: 2rem 1.5rem;
       }
-      
       h1 {
         font-size: 2.2rem;
       }
@@ -169,85 +229,72 @@
 <body>
   <div class="container">
     <header>
-      <img src="https://i.imgur.com/FqaOqlR.jpeg" alt="Foto Profil" class="profile-pic">
+      <img src="https://i.imgur.com/FqaOqlR.jpeg" alt="Profile Picture" class="profile-pic">
       <h1>Zafransszzz</h1>
       <p class="title">Web3 Frontend Developer & ZenChain Builder</p>
+      <button class="wallet-btn" onclick="connectWallet()">
+        <i class="fas fa-wallet"></i> Connect Wallet
+      </button>
     </header>
-    
+
     <section>
-      <h2>Keahlian Saya</h2>
-      <ul>
+      <h2>My Skills</h2>
+      <ul class="skills">
         <li>HTML5, CSS3 & JavaScript (ES6+)</li>
-        <li>Pengembangan Antarmuka Web3 & dApp</li>
-        <li>Integrasi Blockchain (Ethereum, ZenChain)</li>
-        <li>Interaksi Smart Contract (Web3.js, Ethers.js)</li>
+        <li>React.js & Next.js for Web3 Applications</li>
+        <li>Responsive & Adaptive Web Design</li>
+        <li>Git & GitHub Version Control</li>
+        <li>Web3.js, Ethers.js & Wallet Integration</li>
+        <li>Smart Contract Interaction (Ethereum, ZenChain)</li>
+        <li>Decentralized Application (dApp) Development</li>
       </ul>
     </section>
-    
+
     <section>
-      <h2>Proyek Saya</h2>
+      <h2>My Projects</h2>
       <div class="project-card">
-        <h3>Web3 Foundation Portal</h3>
-        <p>Website responsif tentang teknologi Web3 dengan elemen interaktif.</p>
-        <a href="https://zafransszzz.github.io/Web3-Foundation/" target="_blank">Lihat Proyek</a>
+        <div class="project-title">
+          <i class="fas fa-cube"></i>
+          <a href="https://zafransszzz.github.io/Web3-Foundation/" target="_blank">Web3 Foundation Portal</a>
+        </div>
+        <p>A responsive website showcasing Web3 technologies with interactive elements and blockchain integration.</p>
       </div>
-    </section>
-    
-    <section>
-      <h2>Hubungi Saya</h2>
-      <ul>
-        <li>Email: <a href="mailto:Lor7d7dul@gmail.com">Lor7d7dul@gmail.com</a></li>
-        <li>GitHub: <a href="https://github.com/zafransszzz" target="_blank">github.com/zafransszzz</a></li>
-      </ul>
+
+      <div class="project-card">
+        <div class="project-title">
+          <i class="fab fa-ethereum"></i>
+          <a href="https://zenquest.zenchain.io?referral=Xt81EXFysqn730NeXr-so8J_pXiloBk3eEB_edepr80" target="_blank">ZenChain dApp</a>
+        </div>
+        <p>A simple DApp to mint NFTs on the ZenChain Testnet with Web3 wallet integration and smart contract interaction.</p>
+      </div>
       
+      <section>
+        <h2>Coming Soon</h2>
+        <div class="project-card">
+          <div class="project-title">
+            <i class="fas fa-code"></i>
+            <a href="#">NFT Gallery (Coming Soon)</a>
+          </div>
+          <p>An interactive NFT gallery with Web3 wallet connection and real-time blockchain data.</p>
+        </div>
+      </section>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
       <div class="social-links">
-        <!-- X (Twitter) -->
-        <a href="https://x.com/zafransszz?t=WHDNLuvdJHZkZQD42Raa8w&s=09" 
-           target="_blank" 
-           title="X (Twitter)">
-          <i class="fab fa-x-twitter"></i>
-        </a>
-        
-        <!-- Discord -->
-        <a href="https://discord.com/users/1314832941137788928" 
-           target="_blank" 
-           title="Discord">
-          <i class="fab fa-discord"></i>
-        </a>
-        
-        <!-- Telegram -->
-        <a href="#" target="_blank" title="Telegram">
-          <i class="fab fa-telegram"></i>
-        </a>
-        
-        <!-- LinkedIn -->
-        <a href="#" target="_blank" title="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
+        <a href="mailto:Lor7d7dul@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/zafransszzz" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://x.com/zafransszz?t=WHDNLuvdJHZkZQD42Raa8w&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://discord.com/users/1314832941137788928" target="_blank"><i class="fab fa-discord"></i></a>
       </div>
     </section>
   </div>
 
   <script>
-    // Fungsi untuk tracking klik sosial media
-    document.querySelectorAll('.social-links a').forEach(link => {
-      link.addEventListener('click', function() {
-        const platform = this.getAttribute('title');
-        console.log(`Klik ${platform} tercatat`);
-        // Bisa ditambahkan Google Analytics atau tracking lainnya
-      });
-    });
-    
-    // Animasi sederhana saat halaman dimuat
-    document.addEventListener('DOMContentLoaded', () => {
-      const elements = document.querySelectorAll('section');
-      elements.forEach((el, index) => {
-        setTimeout(() => {
-          el.style.opacity = 1;
-          el.style.transform = 'translateY(0)';
-        }, 300 * (index + 1));
-      });
-    });
+    function connectWallet() {
+      alert('Wallet connection functionality goes here.');
+    }
   </script>
 </body>
 </html>
